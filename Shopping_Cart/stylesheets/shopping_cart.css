@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    height: 100%;
+}
+
+
+body
+{
+    background-color: #000000;
+    color: white ;
+    font: 15px Arial
+}
+ 
+
+ 
+
+
+    .logInOut {
+        text-align: right;
+        padding: 20px 30px;
+    }
+
+
+
+    .loginHeader {
+        padding-left: 100px;
+        padding-top: 100px;
+        font-size:xx-large;
+    }
+    .loginForm {
+        padding-left: 100px;
+        padding-top: 100px;
+        font-size: large;
+        
+    }
+
+    .basketimg {
+
+        width: 40px;
+        height: 40px;
+    }
+
+    .flex-container {
+        display: flex;
+        background-color: grey;
+        height: 100%;
+        font-size: 20px;
+
+      }
+    
+      .leftContainer {
+        background-color: grey;
+        font-size: 30px;
+        width: 50%; 
+        text-align: left;
+        align-self: center;
+        padding-left: 20px
+      }
+      .middleContainer {
+         
+        align-items: center;
+        width: 50%; 
+        background-color: grey;
+        align-self: center;
+        text-align: center;
+        padding-right: 20px;       
+      }
+      .rightContainer {
+        
+        align-items: right;
+           width: 50%; 
+        background-color: grey;
+        align-self: center;
+        text-align: right;
+        padding-right: 20px;
+      }
+ 

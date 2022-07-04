@@ -1,0 +1,75 @@
+
+CREATE TABLE Customer
+(
+  customerID   INT(3)      NOT NULL AUTO_INCREMENT,
+  firstName    VARCHAR(20) NOT NULL,
+  secondName   VARCHAR(20) NULL    ,
+  surname      VARCHAR(20) NOT NULL,
+  houseNumName VARCHAR(20) NOT NULL,
+  addressTwo   VARCHAR(20) NOT NULL,
+  townCity     VARCHAR(20) NOT NULL,
+  postCode     VARCHAR(20) NOT NULL,
+  status       int(1)      NOT NULL DEFAULT 1,
+  PRIMARY KEY (customerID)
+);
+
+CREATE TABLE Product
+(
+  productID    INT(3)      NOT NULL AUTO_INCREMENT,
+  productName  VARCHAR(20) NOT NULL,
+  productDesc  VARCHAR(20) NOT NULL,
+  productPrice INT(5)      NOT NULL,
+  productQty   INT(3)      NOT NULL,
+  status       INT(1)      NOT NULL DEFAULT 1,
+  PRIMARY KEY (productID)
+);
+
+CREATE TABLE Shopping_Cart
+(
+  shopCartID  INT(5) NOT NULL AUTO_INCREMENT,
+  storeID     INT(3) NOT NULL,
+  customerID  INT(3) NOT NULL,
+  date        DATE   NOT NULL,
+  orderStatus INT(1) NOT NULL,
+  status      INT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (shopCartID)
+);
+
+CREATE TABLE Shopping_Cart_Details
+(
+  shopCartDetID INT(5) NOT NULL AUTO_INCREMENT,
+  shopCartID    INT(5) NOT NULL,
+  productID     INT(3) NOT NULL,
+  prodAddedQty  INT(3) NULL    ,
+  PRIMARY KEY (shopCartDetID)
+);
+
+CREATE TABLE Store
+(
+  storeID      INT(3)      NOT NULL AUTO_INCREMENT,
+  storeName    VARCHAR(20) NOT NULL,
+  storeAddress VARCHAR(20) NOT NULL,
+  storeEmail   VARCHAR(20) NOT NULL,
+  status       int(1)      NOT NULL DEFAULT 1,
+  PRIMARY KEY (storeID)
+);
+
+ALTER TABLE Shopping_Cart
+  ADD CONSTRAINT FK_Customer_TO_Shopping_Cart
+    FOREIGN KEY (customerID)
+    REFERENCES Customer (customerID);
+
+ALTER TABLE Shopping_Cart
+  ADD CONSTRAINT FK_Store_TO_Shopping_Cart
+    FOREIGN KEY (storeID)
+    REFERENCES Store (storeID);
+
+ALTER TABLE Shopping_Cart_Details
+  ADD CONSTRAINT FK_Shopping_Cart_TO_Shopping_Cart_Details
+    FOREIGN KEY (shopCartID)
+    REFERENCES Shopping_Cart (shopCartID);
+
+ALTER TABLE Shopping_Cart_Details
+  ADD CONSTRAINT FK_Product_TO_Shopping_Cart_Details
+    FOREIGN KEY (productID)
+    REFERENCES Product (productID);
