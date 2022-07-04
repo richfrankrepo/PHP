@@ -19,7 +19,6 @@
     $postCode = $_POST['postCode'];
     $emailAddress = $_POST['emailAddress'];
     $pwd = $_POST['pwd'];
-    $pwd2 = $_POST['pwd2'];
     
     
     // validate form entries
@@ -31,15 +30,11 @@
         header("Location: ../signup.php?error=invalidemail"); // Is e-mail valid format
         exit;        
     }
-    else if ($pwd != $pwd2) {
-        header("Location: ../signup.php?error=passwordnotmatch"); // Is e-mail valid format
-        exit;  
-    }
     else {
         // check if emailAddress supplied is already in the database
         $sql = "SELECT * FROM CUSTOMER
                 WHERE emailAddress = '$emailAddress';";
-        
+
         $result = mysqli_query($conn,$sql);
 
         if ( mysqli_num_rows($result) != 0 ) {
@@ -55,34 +50,14 @@
             (firstName, secondName, surname, houseNumName, addressTwo, townCity, postCode, emailAddress, pwd) 
             VALUES ('$firstName', '$secondName', '$surname', '$houseNumName', '$addressTwo', '$townCity', '$postCode', '$emailAddress', '$pwd');";
     
-    
+    //exit;
 
     // https://youtu.be/LC9GaXkdxF8?list=PL0eyrZgxdwhwBToawjm9faF1ixePexft-&t=2954
 
     if(mysqli_query($conn,$sql))
     {   
-        session_start();
-      
-//        $userDetails = getUser($emailAddress,$conn);
-//        $row = mysqli_fetch_assoc($userDetails);
-        //echo $row['customerID'];
-        $customerID = mysqli_insert_id($conn);
-        echo $customerID;
-        $_SESSION['customerID'] = $customerID;
-        $_SESSION['firstName'] = $firstName;
-        $_SESSION['surname'] = $secondName;
-        $_SESSION['emailAddress'] = $emailAddress;
-        
-
-        // store user details in session variables
-/*        $_SESSION['customerID'] = $row['customerID'];
-        $_SESSION['firstName'] = $row['firstName'];
-        $_SESSION['surname'] = $row['surname'];
-        $_SESSION['emailAddress'] = $row['emailAddress'];   */
-
-
-        // redirect back to home page
-        header("Location: ../index.php?registration=success");  
+        echo "Sucess";
+        header("Location: ../signup.php?registration=success");
 
     }
     else {

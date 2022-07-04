@@ -17,14 +17,14 @@
 
     $result = mysqli_query($conn,$sql);
 
-    echo $uname."-".$pwd."<br>";
+    echo $uname;
     
     // check if supplied uname/pwd combo exists in user table
     if ( mysqli_num_rows($result) == 0 ) {
         // username & password combo is invalid so redirect  to index page with error message
         header("Location: ../login.php?error=loginfailed");
         //echo "<br>computer says no!";
-    } 
+    }
     else {
         // username and pwd is valid so create session
         session_start();
@@ -35,11 +35,20 @@
         $_SESSION['firstName'] = $row['firstName'];
         $_SESSION['surname'] = $row['surname'];
         $_SESSION['emailAddress'] = $row['emailAddress'];
+        $_SESSION['status'] = $row['status'];
         
-        echo $_SESSION['customerID']."-".$_SESSION['firstName'];
+
+        $customerID = $_SESSION['customerID'];
+        // get existing (open) cart
+        $sql = "SELECT shopCartID FROM `shopping_cart` WHERE customerID = $customerID AND status = 1";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['shopCartID'] = $row['shopCartID'];
+        
+        
         // redirect back to index page with success message
         header("Location: ../index.php?login=success");
-        //echo "<br>whoop-whoop!";
+        
     }
 
 
