@@ -16,15 +16,10 @@ body
 {
     background-color: #000000;
     color: white ;
+    font: 15px Arial
 }
  
-    header
-    {
-        width: 100%;
-        height: 80px;
-        background: grey;
-        border-style: solid none solid none;
-    }
+
  
 
 
@@ -32,6 +27,8 @@ body
         text-align: right;
         padding: 20px 30px;
     }
+
+
 
     .loginHeader {
         padding-left: 100px;
@@ -42,61 +39,47 @@ body
         padding-left: 100px;
         padding-top: 100px;
         font-size: large;
-        ;
+        
     }
 
+    .basketimg {
 
-
- /*    div.text
-    {
-        width: 600px;
-        background: #404040;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 10px;
+        width: 40px;
+        height: 40px;
     }
 
-       div.text h2
-        {
-            color:  rgb(243, 242, 239);   
-        }
+    .flex-container {
+        display: flex;
+        background-color: grey;
+        height: 100%;
+        font-size: 20px;
 
-        div.text p
-        {
-            color: #fff;
-        }
-
-
-/*         div.text form
-        {
-            text-align: center;
-            margin-top: 20px;
-        }
-            div.text form input
-            {
-                border: none;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-           div.text form input[type=submit]
-            {
-                background:rgb(128, 102, 25);
-                color: #ededed;
-                width: 100px;
-            }
-                div.text form input[type=submit]:hover
-                {
-                    color: #404040;
-                    cursor: pointer;
-                    font-weight:bold;
-                }
-
-    div.spacer
-    {
-        width: 100%;
-        height: 1px;
-        clear: both;
-    }
-
+      }
     
+      .leftContainer {
+        background-color: grey;
+        font-size: 30px;
+        width: 50%; 
+        text-align: left;
+        align-self: center;
+        padding-left: 20px
+      }
+      .middleContainer {
+         
+        align-items: center;
+        width: 50%; 
+        background-color: grey;
+        align-self: center;
+        text-align: center;
+        padding-right: 20px;       
+      }
+      .rightContainer {
+        
+        align-items: right;
+           width: 50%; 
+        background-color: grey;
+        align-self: center;
+        text-align: right;
+        padding-right: 20px;
+      }
+ 
