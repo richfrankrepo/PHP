@@ -11,12 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/shopping_cart.css"/> 
-    <title>Document</title>
+    <title>CSS Pizzas - signup</title>
 </head>
 <body>
 
-    <div class=loginHeader>
-        <img src="images/lock-logo.png" style="width:5%;height:5%">Sign In
+    <div class=loginHeader >
+        <img src="images/secure.png" style="width:5%;height:5%">New Customer
         <?php
             // if any error messages returned from doregister.php then display on screen
             if(isset($_GET['error'])) {
@@ -34,9 +34,9 @@
                 }
             }
         ?>
-        <br><br>
+        
     </div>
-    <hr>
+    <br><br><br><hr>
     <div class=loginForm>
     <form action="scripts/doregister.php" method="POST">
         <label for="firstName">First name:</label>
